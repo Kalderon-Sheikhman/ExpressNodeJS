@@ -29,6 +29,13 @@ app.get("/:word/echo", (req, res) => {
       echo: word
     });
   });
+app.get('/name', (req,res)=>{
+    var { first: firstName, last: lastName } = req.query;
+  // Use template literals to form a formatted string
+  res.json({
+    name: `${firstName} ${lastName}`
+  });
+})
 
 
 app.get("/", (req,res) => {
