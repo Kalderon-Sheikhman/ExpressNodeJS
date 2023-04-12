@@ -11,16 +11,18 @@ app.use(function middleware(req, res, next) {
     next();
   });
 
-  const middleware = (req, res, next) => {
+app.get(
+  "/now",
+  (req, res, next) => {
     req.time = new Date().toString();
     next();
-  };
-  
-  app.get("/now", middleware, (req, res) => {
+  },
+  (req, res) => {
     res.send({
       time: req.time
     });
-  });
+  }
+);
 
 app.get("/", (req,res) => {
     res.sendFile(__dirname + "/views/index.html");
