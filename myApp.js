@@ -51,6 +51,11 @@ app.get("/json", (req,res) => {
     res.json(process.env.MESSAGE_STYLE==="uppercase" ? {"message": "HELLO JSON"}: {"message": "Hello json"});   
 });
 
+app.post("/name", function(req, res) {
+    // Handle the data in the request
+    var string = req.body.first + " " + req.body.last;
+    res.json({ name: string });
+  });
 
 
 
