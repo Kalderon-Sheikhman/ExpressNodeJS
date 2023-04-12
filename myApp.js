@@ -3,6 +3,15 @@ let express = require('express');
 let app = express();
 console.log("Hello World");
 
+
+
+app.use(function middleware(req, res, next) {
+    var string = req.method + " " + req.path + " - " + req.ip;
+    console.log(string);
+    next();
+  });
+
+
 app.get("/", (req,res) => {
     res.sendFile(__dirname + "/views/index.html");
 });
