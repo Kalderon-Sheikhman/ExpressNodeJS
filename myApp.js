@@ -23,6 +23,13 @@ app.get(
     });
   }
 );
+app.get("/:word/echo", (req, res) => {
+    const { word } = req.params;
+    res.json({
+      echo: word
+    });
+  });
+
 
 app.get("/", (req,res) => {
     res.sendFile(__dirname + "/views/index.html");
